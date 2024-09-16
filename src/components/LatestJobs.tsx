@@ -1,4 +1,3 @@
-import Button from './Button';
 import JobsSlider from './sliders/JobsSlider';
 
 export default function LatestJobs() {
