@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-track {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.slick-dots {
+  bottom: -50px;
+}
+li.slick-active > div {
+  background-color: #f97316;
+}
