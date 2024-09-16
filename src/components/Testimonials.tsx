@@ -1,4 +1,3 @@
-import React from 'react';
 import profile from '../assets/aaron.png';
 
 export default function Testimonials() {

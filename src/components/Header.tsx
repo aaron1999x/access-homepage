@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import Button from './Button';
@@ -16,38 +16,38 @@ export const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navList = {
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.07,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1,
-      },
-    },
-  };
-  const variants = {
-    open: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        y: { stiffness: 1000, velocity: -100 },
-      },
-    },
-    closed: {
-      y: 50,
-      opacity: 0,
-      transition: {
-        y: { stiffness: 1000 },
-      },
-    },
-  };
+  // const navList = {
+  //   visible: {
+  //     opacity: 1,
+  //     transition: {
+  //       delayChildren: 0.2,
+  //       staggerChildren: 0.07,
+  //     },
+  //   },
+  //   hidden: {
+  //     opacity: 0,
+  //     transition: {
+  //       staggerChildren: 0.05,
+  //       staggerDirection: -1,
+  //     },
+  //   },
+  // };
+  // const variants = {
+  //   open: {
+  //     y: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       y: { stiffness: 1000, velocity: -100 },
+  //     },
+  //   },
+  //   closed: {
+  //     y: 50,
+  //     opacity: 0,
+  //     transition: {
+  //       y: { stiffness: 1000 },
+  //     },
+  //   },
+  // };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -99,12 +99,7 @@ export default function Header() {
         {isMenuOpen && (
           <motion.div className="lg:hidden mt-4 bg-gray-200 p-4 rounded-lg">
             <nav>
-              <motion.ul
-                className="space-y-2 "
-                animate="visible"
-                exit="hidden"
-                variants={navList}
-              >
+              <motion.ul className="space-y-2 ">
                 {navItems.map((item) => (
                   <motion.li key={item}>
                     <a
