@@ -23,7 +23,7 @@ export const aboutUsStats: AboutUsStat[] = [
 export default function AboutUs() {
   return (
     <section
-      className="bg-gray-300 py-8 md:py-16 relative"
+      className="bg-gray-300 py-8 lg:py-16  relative"
       style={{
         backgroundImage: `url(${coffeeBackground})`,
         backgroundSize: 'cover',
@@ -57,6 +57,8 @@ export default function AboutUs() {
                   end={stat.number}
                   suffix={stat?.suffix}
                   duration={4}
+                  enableScrollSpy //counter only stars when in view
+                  scrollSpyOnce
                   className="text-3xl md:text-4xl font-medium"
                 />
 
@@ -71,7 +73,7 @@ export default function AboutUs() {
           <Button
             text="read more"
             type="button"
-            className="bg-white w-full !lowercase md:w-auto"
+            className="bg-white !lowercase md:w-auto"
           />
         </div>
       </div>

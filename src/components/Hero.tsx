@@ -2,11 +2,12 @@ import watchBackground from '../assets/background/watch-background.jpg';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import Input from './Input';
+import HeroSlider from './sliders/HeroSlider';
 
 export default function Hero() {
   return (
     <section
-      className="relative h-[700px] bg-cover bg-center"
+      className="relative h-screen bg-cover bg-center"
       style={{
         backgroundImage: `url(${watchBackground})`,
       }}
@@ -31,6 +32,9 @@ export default function Hero() {
             className="bg-primary !text-white"
           />
         </div>
+      </div>
+      <div className="absolute bottom-0 w-full">
+        <HeroSlider />
       </div>
     </section>
   );
