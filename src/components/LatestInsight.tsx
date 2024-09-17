@@ -1,8 +1,14 @@
+import { motion } from 'framer-motion';
 import { InsightCard } from '../../utils/types';
 import card1 from '../assets/card-1.jpg';
 import card2 from '../assets/card-2.jpg';
 import card3 from '../assets/card-3.jpg';
 import card4 from '../assets/card-4.jpg';
+import {
+  staggerItems,
+  fadeInLeft,
+  staggerVariants,
+} from '../../utils/framer-variants';
 
 const cardData: InsightCard[] = [
   {
@@ -32,12 +38,28 @@ const cardData: InsightCard[] = [
 export default function LatestInsight() {
   return (
     <div className="flex-col flex gap-8">
-      <h3 className="text-xl font-medium flex justify-center text-slate-700">
+      <motion.h3
+        className="text-xl font-medium flex justify-center text-slate-700"
+        variants={fadeInLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         Latest Insights
-      </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      </motion.h3>
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
+        variants={staggerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {cardData.map((item, index) => (
-          <div key={index} className="relative h-[300px] group overflow-hidden">
+          <motion.div
+            variants={staggerItems}
+            key={index}
+            className="relative h-[300px] group overflow-hidden"
+          >
             <img
               src={item.image}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -49,9 +71,9 @@ export default function LatestInsight() {
               </h4>
               <p className="text-white text-sm">{item.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
