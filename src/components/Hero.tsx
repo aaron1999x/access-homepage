@@ -1,4 +1,4 @@
-import watchBackground from '../assets/background/watch-background.jpg';
+import watchBackgroundC from '../assets/background/watchBackgroundCompressed.jpg';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import Input from './Input';
@@ -10,7 +10,7 @@ export default function Hero() {
     <section
       className="relative h-screen bg-cover bg-center"
       style={{
-        backgroundImage: `url(${watchBackground})`,
+        backgroundImage: `url(${watchBackgroundC})`,
       }}
     >
       {/* bg-overlay */}
