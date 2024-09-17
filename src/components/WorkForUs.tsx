@@ -21,6 +21,7 @@ export default function WorkForUs() {
       <div className="col-span-1 h-[250px] hidden md:block">
         <img
           src={workForUsImage}
+          loading="lazy"
           className="w-full h-full object-cover"
           alt="Work for us"
         />

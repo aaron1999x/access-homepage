@@ -14,17 +14,14 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Hero />
-
         <AboutUs />
         <LatestJobs />
-
         <div className="container mx-auto py-8 lg:py-16 px-4 space-y-12">
           <Testimonials />
           <WorkForUs />
           <LatestInsight />
         </div>
       </main>
-
       <Footer />
     </div>
   );

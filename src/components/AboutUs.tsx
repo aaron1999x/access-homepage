@@ -1,5 +1,5 @@
 import Button from './Button';
-import coffeeBackground from '../assets/background/coffee-background.jpg';
+import coffeeBackgroundC from '../assets/background/coffeeBackgroundCompressed.jpg';
 import CountUp from 'react-countup';
 import { AboutUsStat } from '../../utils/types';
 import { motion } from 'framer-motion';
@@ -27,7 +27,7 @@ export default function AboutUs() {
     <section
       className="bg-gray-300 py-8 lg:py-16  relative"
       style={{
-        backgroundImage: `url(${coffeeBackground})`,
+        backgroundImage: `url(${coffeeBackgroundC})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

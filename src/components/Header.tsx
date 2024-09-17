@@ -74,7 +74,7 @@ export default function Header() {
             </div>
           </nav>
         </div>
-        {isMenuOpen && (
+        {isMenuOpen && ( //for mobile menu
           <motion.div
             className="lg:hidden mt-2 bg-gray-200 p-4 rounded-lg duration-300 ease-in-out"
             initial="closed"
