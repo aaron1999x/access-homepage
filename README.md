@@ -48,4 +48,4 @@ To build the project for production:
 - ESLint
 - Framer Motion
 - React-CountUp
-- [List any other additional libraries you've used in your project]
+- React-Slick
