@@ -47,8 +47,6 @@ export default function HeroSlider() {
     <div className="relative">
       {/* Background div */}
       <div className="absolute inset-0 bg-slate-800 opacity-70 z-0"></div>
-
-      {/* Slider content */}
       <div className="relative z-10">
         <div className=" px-24 mx-auto py-1 md:py-2">
           <Slider {...settings}>

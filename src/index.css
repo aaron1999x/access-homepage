@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* customization for slick library */
 .slick-track {
   display: flex;
   gap: 0.5rem;
