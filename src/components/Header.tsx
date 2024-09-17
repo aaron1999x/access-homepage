@@ -2,8 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import Button from './Button';
+import {
+  headerStaggerVariants,
+  headerItemVariants,
+  shortFadeInBottom,
+  fadeInFromTop,
+} from '../../utils/framer-variants';
 
-// New export for navigation items
 export const navItems = [
   'JOBS',
   'ABOUT',
@@ -15,53 +20,23 @@ export const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // const navList = {
-  //   visible: {
-  //     opacity: 1,
-  //     transition: {
-  //       delayChildren: 0.2,
-  //       staggerChildren: 0.07,
-  //     },
-  //   },
-  //   hidden: {
-  //     opacity: 0,
-  //     transition: {
-  //       staggerChildren: 0.05,
-  //       staggerDirection: -1,
-  //     },
-  //   },
-  // };
-  // const variants = {
-  //   open: {
-  //     y: 0,
-  //     opacity: 1,
-  //     transition: {
-  //       y: { stiffness: 1000, velocity: -100 },
-  //     },
-  //   },
-  //   closed: {
-  //     y: 50,
-  //     opacity: 0,
-  //     transition: {
-  //       y: { stiffness: 1000 },
-  //     },
-  //   },
-  // };
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="absolute w-full z-40">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h1 className="text-3xl font-bold text-white">volcanic</h1>
-          </motion.div>
+    <motion.header
+      className="absolute w-full z-40"
+      initial="hidden"
+      animate="visible"
+      variants={fadeInFromTop}
+      transition={{ duration: 0.4, delay: 0.4 }}
+    >
+      <div className="container mx-auto px-4 ">
+        <div className=" md:h-[80px] h-[60px] flex justify-between items-center">
+          <div>
+            <h1 className="md:text-3xl text-2xl font-bold text-white">
+              volcanic
+            </h1>
+          </div>
           <div className="lg:hidden">
             <button
               onClick={toggleMenu}
@@ -75,10 +50,13 @@ export default function Header() {
             <div className="flex items-center justify-between gap-8">
               <ul className="flex space-x-8">
                 {navItems.map((item) => (
-                  <li key={item}>
+                  <li
+                    key={item}
+                    className="relative h-[80px] flex items-center"
+                  >
                     <a
                       href="/"
-                      className="text-sm text-gray-50 hover:text-orange-400 cursor-pointer"
+                      className="text-sm text-gray-50 hover:text-orange-400 cursor-pointer underline-on-hover"
                     >
                       {item}
                     </a>
@@ -97,11 +75,17 @@ export default function Header() {
           </nav>
         </div>
         {isMenuOpen && (
-          <motion.div className="lg:hidden mt-4 bg-gray-200 p-4 rounded-lg">
-            <nav>
-              <motion.ul className="space-y-2 ">
+          <motion.div
+            className="lg:hidden mt-2 bg-gray-200 p-4 rounded-lg duration-300 ease-in-out"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={headerStaggerVariants}
+          >
+            <motion.nav>
+              <motion.ul className="space-y-2">
                 {navItems.map((item) => (
-                  <motion.li key={item}>
+                  <motion.li key={item} variants={headerItemVariants}>
                     <a
                       href="#"
                       className="block text-sm text-gray-600 hover:text-gray-800 py-1"
@@ -111,22 +95,24 @@ export default function Header() {
                   </motion.li>
                 ))}
               </motion.ul>
-            </nav>
-            <div className="mt-4 flex gap-2">
-              {/* <Button variant="outline" className="w-full">
-                  LOGIN
-                </Button>
-                <Button className="w-full">REGISTER</Button> */}
+            </motion.nav>
+            <motion.div
+              className="mt-4 flex gap-2"
+              initial="hidden"
+              variants={shortFadeInBottom}
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
               <Button text="login" type="button" className="bg-white" />
               <Button
                 text="register"
                 type="button"
                 className="bg-primary !text-white"
               />
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 }

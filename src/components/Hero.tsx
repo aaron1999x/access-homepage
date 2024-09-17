@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Button from './Button';
 import Input from './Input';
 import HeroSlider from './sliders/HeroSlider';
+import { fadeInBottom } from '../../utils/framer-variants';
 
 export default function Hero() {
   return (
@@ -16,9 +17,11 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <div className="container mx-auto px-4 h-full flex flex-col justify-center items-center relative z-10">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          initial="hidden"
+          variants={fadeInBottom}
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-3xl md:text-5xl xl:text-7xl font-medium text-white mb-12 text-center max-w-4xl"
         >
           Accusantium doloremque quae ab illo
