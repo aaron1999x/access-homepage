@@ -36,9 +36,6 @@ To run this project locally, follow these steps:
 
 5. Open your browser and visit `http://localhost:5173` to view the application.
 
-## Build
-
-To build the project for production:
 
 ## Libraries and Tools Used
 
