@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 import { InsightCard } from '../../utils/types';
 import card1 from '../assets/card-1.jpg';
 import card2 from '../assets/card-2.jpg';
@@ -36,8 +37,11 @@ const cardData: InsightCard[] = [
 ];
 
 export default function LatestInsight() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
   return (
-    <div className="flex-col flex gap-8">
+    <div className="flex-col flex gap-8" ref={ref}>
       <motion.h3
         className="text-xl font-medium flex justify-center text-slate-700"
         variants={fadeInLeft}
@@ -51,14 +55,13 @@ export default function LatestInsight() {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"
         variants={staggerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+        animate={isInView ? 'visible' : 'hidden'} //use inview to solve animation not showing until scrolling to very end for mobile due to height of content
       >
         {cardData.map((item, index) => (
           <motion.div
-            variants={staggerItems}
             key={index}
-            className="relative h-[300px] group overflow-hidden"
+            className="relative h-[300px] overflow-hidden group"
+            variants={staggerItems}
           >
             <img
               src={item.image}
