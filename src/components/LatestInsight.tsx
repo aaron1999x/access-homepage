@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { InsightCard } from '../../utils/types';
 import card1 from '../assets/card-1.jpg';
 import card2 from '../assets/card-2.jpg';
